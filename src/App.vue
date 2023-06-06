@@ -1,10 +1,16 @@
 <template>
-<div></div>
+  <div class="app">
+    App文件
+    <home-page></home-page>
+  </div>
 </template>
 
 <script>
-
+import homePage from './views/homePage.vue';
 export default {
+  components:{
+    homePage,
+  },
   name: 'App',
 }
 </script>
