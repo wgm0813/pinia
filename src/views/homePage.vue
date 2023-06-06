@@ -8,6 +8,7 @@
     <h3>age: {{ counterStore.age }}</h3>
     <h3>total: {{ counterStore.total }}</h3>
     <button @click="update">修改</button>
+    <button @click="reset">恢复</button>
   </div>
 </template>
 
@@ -26,9 +27,27 @@ function incrementCount() {
   counterStore.count++; 
 }
 function update(){
-  counterStore.name = '王高敏';
-  counterStore.age = 23;
-  counterStore.total = 180;
+  // 1、一个个修改状态
+  // counterStore.name = '王高敏';
+  // counterStore.age = 23;
+  // counterStore.total = 180;
+
+  // 2、一次性修改多个状态
+  // counterStore.$patch({
+  //   name: 'james',
+  //   age: 35
+  // })
+
+  // 3、替换state为新的对象
+  const oldState = counterStore.$state;
+  counterStore.$state = {
+    name: '22222222',
+    total: '1111111'
+  }
+  console.log(counterStore.$state === oldState);//true
+}
+function reset(){
+  counterStore.$reset()
 }
 </script>
 
