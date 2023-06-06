@@ -3,6 +3,11 @@
     <h2>count: {{ counterStore.count }}</h2>
     <h2>解构count: {{ count }}</h2>
     <button @click="incrementCount">count+1</button>
+
+    <h3>name: {{ counterStore.name }}</h3>
+    <h3>age: {{ counterStore.age }}</h3>
+    <h3>total: {{ counterStore.total }}</h3>
+    <button @click="update">修改</button>
   </div>
 </template>
 
@@ -19,6 +24,11 @@ const counterStore = useCounter()
 const {count} = storeToRefs(counterStore);
 function incrementCount() {
   counterStore.count++; 
+}
+function update(){
+  counterStore.name = '王高敏';
+  counterStore.age = 23;
+  counterStore.total = 180;
 }
 </script>
 
